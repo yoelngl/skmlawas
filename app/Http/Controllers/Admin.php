@@ -327,8 +327,8 @@ class Admin extends Controller
 
         public function grafik_pendidikan()
     {   
-        $grafik_pendidikan = \App\grafik_pendidikan::all();
-        return view ('owner.grafik_pendidikan',['grafik_pendidikan' => $grafik_pendidikan]);
+        $taman = DB::table('taman')->get();
+        return view ('owner.data_grafik_pendidikan',compact('taman'));
     }
 
     public function grafik_pekerjaan()
