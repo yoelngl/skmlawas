@@ -25,7 +25,7 @@
                                 <tr>
                                     <td>
                                         {{ $taman->nama_taman }} 
-                                        <a href="{{ url('/grafik_umur'. $taman->taman_id . '/komentar') }}" class="pull-right"> <i class="fa fa-eye" style="font-size: 20px;"></i></a>
+                                        <a href="{{ url('/komentar/'. $taman->taman_id . '/komentar') }}" class="pull-right"> <i class="fa fa-eye" style="font-size: 20px;"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
