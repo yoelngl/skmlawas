@@ -13,8 +13,8 @@
                 <div class="au-card m-b-30">
                     <div class="au-card-inner">
                         <div><h3 style="text-align: center;"><b>GRAFIK RESPONDEN UMUR</b></h3></div>
+                        <h4 class="text-center">{{$grafik_umur[0]->nama_taman}}</h4>
                         <br>
-                       
                         <div style="">
                             <canvas id="age" style=""></canvas>
                         </div>
@@ -29,19 +29,19 @@
 
 
  <?php 
-    $umur1 = DB::select("SELECT COUNT(UMUR) as per FROM `responden` where umur BETWEEN '15' and '20'"); 
+    $umur1 = DB::select("SELECT COUNT(UMUR) as per FROM `responden` where umur BETWEEN '15' and '20' and taman_id = " . $grafik_umur[0]->taman_id . " "); 
     foreach ($umur1 as $data1) {
         $hasil1 = $data1->per;
     }
-    $umur2 = DB::select("SELECT COUNT(UMUR) as per FROM `responden` where umur BETWEEN '21' and '30'");
+    $umur2 = DB::select("SELECT COUNT(UMUR) as per FROM `responden` where umur BETWEEN '21' and '30' and taman_id = " . $grafik_umur[0]->taman_id . " ");
     foreach ($umur2 as $data2) {        
         $hasil2 = $data2->per;
     }
-    $umur3 = DB::select("SELECT COUNT(UMUR) as per FROM `responden` where umur BETWEEN '31' and '40'");
+    $umur3 = DB::select("SELECT COUNT(UMUR) as per FROM `responden` where umur BETWEEN '31' and '40' and taman_id = " . $grafik_umur[0]->taman_id . " ");
     foreach ($umur3 as $data3) {        
         $hasil3 = $data3->per;
     }
-    $umur4 = DB::select("SELECT COUNT(UMUR) as per FROM `responden` where umur BETWEEN '41' and '80'");
+    $umur4 = DB::select("SELECT COUNT(UMUR) as per FROM `responden` where umur BETWEEN '41' and '80' and taman_id = " . $grafik_umur[0]->taman_id . " ");
     foreach ($umur4 as $data4) {        
         $hasil4 = $data4->per;
     }
@@ -79,5 +79,7 @@
 
 </script>
 
+
+<a href="{{url('/data_umur')}}" class="btn btn-success" style="margin: auto;"> Kembali </a>
     
 @endsection

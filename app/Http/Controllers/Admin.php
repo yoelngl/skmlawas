@@ -318,10 +318,18 @@ class Admin extends Controller
         return view ('owner.ad_taman',['ad_taman' => $ad_taman]);
     }
 
+    public function data_umur() {
+        $tamans = taman::all();
+        return view('owner.data_umur', compact('tamans'));
+    }
        
-     public function grafik_umur()
+     public function grafik_umur($taman_id)
     {   
-        $grafik_umur = \App\grafik_umur::all();
+        // $grafik_umur = \App\grafik_umur::all();
+        $grafik_umur = DB::table('taman')
+                    -> join('nilai', 'nilai.taman_id', '=', 'taman.taman_id')
+                    -> where('nilai.taman_id', $taman_id)
+                    -> get();
         return view ('owner.grafik_umur', compact('grafik_umur'));
     }
 
