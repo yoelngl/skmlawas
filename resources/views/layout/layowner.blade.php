@@ -67,7 +67,7 @@
               <li><a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-chart-bars"></i> <span>Grafik responden</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
               <div id="subPages" class="collapse ">
                 <ul class="nav">
-                  <li><a href="/grafik_umur" class="">grafik umur</a></li>
+                  <li><a href="/data_umur" class="">grafik umur</a></li>
                   <li><a href="/grafik_pendidikan" class="">grafik pendidikan</a></li>
                   <li><a href="/grafik_pekerjaan" class="">grafik pekerjaan</a></li>
                 </ul>
