@@ -1,4 +1,7 @@
 @extends('layout.layowner')
+@section('title')
+Rekapitulasi Nilai Survei
+@endsection
 <style type="text/css">
     .tab tr td{
         padding: 4px 4px 4px 4px;

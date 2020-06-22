@@ -1,4 +1,7 @@
 @extends('layout.layowner')
+@section('title')
+Nilai Taman
+@endsection
 <style type="text/css">
     .tab tr td{
         padding: 4px 4px 4px 4px;
@@ -12,7 +15,7 @@
             <div class="col-md-12">
                 <div class="au-card m-b-30">
                     <div class="au-card-inner">
-                        <div><h3 style="text-align: center;"><b>GRAFIK PENDIDIKAN RESPONDEN</b></h3></div>
+                        <div><h3 style="text-align: center;"><b>NILAI TAMAN</b></h3></div>
                         <br>
 
                         <table id="example" class="table table-striped table-bordered w-100">

@@ -1,4 +1,7 @@
 @extends('layout.layowner')
+@section('title')
+Grafik Responden Umur
+@endsection
 <style type="text/css">
 
 .tab tr td{
