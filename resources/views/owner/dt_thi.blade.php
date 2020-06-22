@@ -13,7 +13,10 @@
             <div class="col-md-12">
                 <div class="au-card m-b-30">
                     <div class="au-card-inner">
-                        <div><h3 style="text-align: center;"><b>REKAPITULASI NILAI SURVEI</b></h3></div>
+                        <div class="text-center">
+                            <h3><b>REKAPITULASI NILAI SURVEI</b></h3>
+                            <h4>{{$dt_thi[0]->nama_taman}}</h4>
+                        </div>
                         <br>
                        
             
@@ -269,12 +272,8 @@
             </div>
         </div>
 
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-12">
-                    <a href="{{url('/data_tahun_ini')}}" class="btn btn-success"> Daftar Taman </a>
-                </div>
-            </div>
-        </div>
+        <center>
+            <a href="{{url('/data_tahun_ini')}}" class="btn btn-danger"> Daftar Taman </a>
+        </center>
 
 @endsection
