@@ -1,4 +1,8 @@
 @extends('layout.layowner')
+
+@section('title')
+Detail Grafik Pendidikan
+@endsection
 <style type="text/css">
     .tab tr td{
         padding: 4px 4px 4px 4px;
@@ -13,6 +17,10 @@
                 <div class="au-card m-b-30">
                     <div class="au-card-inner">
                         <div><h3 style="text-align: center;"><b>GRAFIK PENDIDIKAN RESPONDEN</b></h3></div>
+                        <?php foreach ($tam as $tamm): ?>
+                       <h4 class="text-center">{{$tamm->nama_taman}}</h4>
+                          
+                        <?php endforeach ?>
                         <br>
 
                         <div style="">
@@ -29,7 +37,7 @@
 
 
     <?php 
-    $pen = DB::select('SELECT PENDIDIKAN , COUNT(PENDIDIKAN) as jum_p FROM responden GROUP BY PENDIDIKAN'); 
+    // $pen = DB::select('SELECT PENDIDIKAN , COUNT(PENDIDIKAN) as jum_p FROM responden GROUP BY PENDIDIKAN'); 
     // $result = mysqli_query($connect, $query)    ;?>
     var ctx = document.getElementById("pendidikan").getContext("2d");
     var data = {

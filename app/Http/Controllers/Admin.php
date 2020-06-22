@@ -349,11 +349,22 @@ class Admin extends Controller
         return view ('owner.data_grafik_pendidikan',compact('taman'));
     }
 
+
+
     public function grafik_pekerjaan()
     {   
         $grafik_pekerjaan = \App\grafik_pekerjaan::all();
         return view ('owner.grafik_pekerjaan',['grafik_pekerjaan' => $grafik_pekerjaan]);
     }
+
+    public function data_grafik_pendidikan($id){
+        $pen = DB::select("SELECT PENDIDIKAN , COUNT(PENDIDIKAN) as jum_p FROM responden INNER JOIN taman ON responden.taman_id=taman.taman_id WHERE 
+            responden.taman_id = ".$id." GROUP BY PENDIDIKAN");
+        $tam = DB::table('taman')->where('taman_id','=',$id)->get();
+        return view('owner.grafik_pendidikan',compact('pen','tam'));
+
+    }
+
 
 
     public function k(Request $request){

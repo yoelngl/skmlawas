@@ -1,4 +1,8 @@
 @extends('layout.layowner')
+
+@section('title')
+Dashboard
+@endsection
     <style type="text/css">
     .tab tr td{
         padding: 4px 4px 4px 4px;
@@ -18,7 +22,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="metric">
-                                        <span class="icon"><i class="fa fa-download"></i></span>
+                                        <span class="icon"><div style="margin-top: 15px"><i class="fa fa-download"></i></div></span>
                                         <p>
                                             <span class="number">{{$dashboard->count()}}</span>
                                             <span class="title">Survei</span>
@@ -27,7 +31,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="metric">
-                                        <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+                                        <span class="icon"><div style="margin-top: 15px"><i class="fa fa-shopping-bag"></i></div></span>
                                         <p>
                                             <span class="number">{{$jmltaman->count()}}</span>
                                             <span class="title">taman</span>
@@ -36,7 +40,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="metric">
-                                        <span class="icon"><i class="fa fa-eye"></i></span>
+                                        <span class="icon"><div style="margin-top: 15px"><i class="fa fa-eye"></i></div></span>
                                         <p>
                                             <span class="number">{{$jmlpertanyaan->count()}}</span>
                                             <span class="title">pertanyaan</span>

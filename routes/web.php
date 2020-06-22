@@ -59,6 +59,8 @@ Route::get('/data_umur', 'Admin@data_umur');
 Route::get('/grafik_umur/{taman_id}/','Admin@grafik_umur');
 Route::get('/grafik_pekerjaan','Admin@grafik_pekerjaan');
 Route::get('/grafik_pendidikan','Admin@grafik_pendidikan');
+Route::get('/grafik_pendidikan/{id}','Admin@data_grafik_pendidikan');
+
 
 Route::get('/addres', 'Admin@tmbres');
 Route::get('/kerpertanyaan', 'Admin@kerpertanyaan');
