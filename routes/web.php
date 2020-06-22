@@ -52,7 +52,8 @@ Route::get('/pertanyaan:hapus={id}', 'Admin@delpertanyaan');
 Route::get('/data_nilai', 'Admin@dt_nilai');
 
 Route::get('/ad_taman','Admin@ad_taman');
-Route::get('/data_tahun_ini', 'Admin@dt_thi');
+Route::get('/data_tahun_ini', 'Admin@data_tahun_ini');
+Route::get('/dt_thi/{taman_id}', 'Admin@dt_thi');
 
 Route::get('/data_umur', 'Admin@data_umur');
 Route::get('/grafik_umur/{taman_id}/','Admin@grafik_umur');

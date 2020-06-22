@@ -47,8 +47,10 @@ class Admin extends Controller
             Session::put('PASSWORD',$password);
             Session::put('NAMA',$nama);
 
-
-            return view('/owner/dt_thi',[]);
+            $dashboard = responden::all();
+            $jmltaman = taman::all();
+            $jmlpertanyaan = pertanyaan::all();
+            return view('owner.dashboard',compact('dashboard', 'jmltaman', 'jmlpertanyaan'));
 
         }else if($level == 2) {
 
@@ -152,10 +154,18 @@ class Admin extends Controller
         // return view('/content/hasil');
     } 
 
+    public function data_tahun_ini() {
+        $tamans = taman::all();
+        return view('owner.data_tahun_ini', compact('tamans'));
+    }
 
-    public function dt_thi()
+    public function dt_thi($taman_id)
     {            
-        return view('/owner/dt_thi');
+        $dt_thi = DB::table('taman')
+                -> join ('responden', 'taman.taman_id', '=', 'responden.taman_id')
+                -> where ('responden.taman_id', $taman_id)
+                -> get();
+        return view('/owner/dt_thi', compact('dt_thi'));
     }
 
 

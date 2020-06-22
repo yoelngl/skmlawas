@@ -5,7 +5,8 @@
     }
 </style>
 @section('content') 
-            
+
+
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
@@ -35,17 +36,46 @@
     </div>
 </div>
                     <?php
-                        $jumlah = DB::table('responden')->count();
+                        $jumlah = DB::table('responden')
+                                ->WHERE('taman_id', '=', $dt_thi[0]->taman_id)
+                                ->count();
 
-                        $a = DB::table('nilai')->SUM('U1')/$jumlah*0.11;
-                        $b = DB::table('nilai')->SUM('U2')/$jumlah*0.11;
-                        $c = DB::table('nilai')->SUM('U3')/$jumlah*0.11;
-                        $d = DB::table('nilai')->SUM('U4')/$jumlah*0.11;
-                        $e = DB::table('nilai')->SUM('U5')/$jumlah*0.11;
-                        $f = DB::table('nilai')->SUM('U6')/$jumlah*0.11;
-                        $g = DB::table('nilai')->SUM('U7')/$jumlah*0.11;
-                        $h = DB::table('nilai')->SUM('U8')/$jumlah*0.11;
-                        $i = DB::table('nilai')->SUM('U9')/$jumlah*0.11;
+                        $a = DB::table('nilai')
+                            ->WHERE('taman_id', '=', $dt_thi[0]->taman_id)
+                            ->SUM('U1')/$jumlah*0.11;
+                            
+                        $b = DB::table('nilai')
+                            ->WHERE('taman_id', '=', $dt_thi[0]->taman_id)
+                            ->SUM('U2')/$jumlah*0.11;
+                            
+                        $c = DB::table('nilai')
+                            ->WHERE('taman_id', '=', $dt_thi[0]->taman_id)
+                            ->SUM('U3')/$jumlah*0.11;
+                            
+                        $d = DB::table('nilai')
+                            ->WHERE('taman_id', '=', $dt_thi[0]->taman_id)
+                            ->SUM('U4')/$jumlah*0.11;
+                            
+                        $e = DB::table('nilai')
+                            ->WHERE('taman_id', '=', $dt_thi[0]->taman_id)
+                            ->SUM('U5')/$jumlah*0.11;
+                            
+                        $f = DB::table('nilai')
+                            ->WHERE('taman_id', '=', $dt_thi[0]->taman_id)
+                            ->SUM('U6')/$jumlah*0.11;
+                            
+                        $g = DB::table('nilai')
+                            ->WHERE('taman_id', '=', $dt_thi[0]->taman_id)
+                            ->SUM('U7')/$jumlah*0.11;
+                            
+                        $h = DB::table('nilai')
+                            ->WHERE('taman_id', '=', $dt_thi[0]->taman_id)
+                            ->SUM('U8')/$jumlah*0.11;
+                            
+                        $i = DB::table('nilai')
+                            ->WHERE('taman_id', '=', $dt_thi[0]->taman_id)
+                            ->SUM('U9')/$jumlah*0.11;
+                            
                     ?>
 <div class="modal fade" id="tampil" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -60,36 +90,31 @@
                     $nilai = ROUND(($a+$b+$c+$d+$e+$f+$g+$h+$i),2); 
                     
                     if (($nilai >= 3.5324) && ($nilai <= 4.00)){
-                            $ni  = "3,5324 - 4,00";
-                            $no_hp = "88,31 - 100,00";
-                            $nh  = "A";
-                            $kup = "Sangat Baik";
-                        }
-                        else if (($nilai >= 3.0644) && ($nilai <= 3.532))
-                        {
-                            $ni  = "3,0644 - 3,532";
-                            $no_hp = "76,61 - 88,30";
-                            $nh  = "B";
-                            $kup = "Baik";
-                        }
-                        else if (($nilai >= 2.60) && ($nilai <= 3.064))
-                        {
-                            $ni  = "2,60 - 3,064";
-                            $no_hp = "65,00 - 76,60";
-                            $nh  = "C";
-                            $kup = "Kurang Baik";
-                        }
-                        else if (($nilai >= 1.00) && ($nilai <= 2.5996))
-                        {
-                            $ni  = "1,00 - 2,5996";
-                            $no_hp = "25,00 - 64,99";
-                            $nh  = "D";
-                            $kup = "Tidak Baik";
-                        }
-                        else
-                        {
-                            $nilaihuruf = "Tidak Ada";
-                        }
+                        $ni  = "3,5324 - 4,00";
+                        $no_hp = "88,31 - 100,00";
+                        $nh  = "A";
+                        $kup = "Sangat Baik";
+                    } else if (($nilai >= 3.0644) && ($nilai <= 3.532)) {
+                        $ni  = "3,0644 - 3,532";
+                        $no_hp = "76,61 - 88,30";
+                        $nh  = "B";
+                        $kup = "Baik";
+                    } else if (($nilai >= 2.60) && ($nilai <= 3.064)) {
+                        $ni  = "2,60 - 3,064";
+                        $no_hp = "65,00 - 76,60";
+                        $nh  = "C";
+                        $kup = "Kurang Baik";
+                    } else if (($nilai >= 1.00) && ($nilai <= 2.5996)) {
+                        $ni  = "1,00 - 2,5996";
+                        $no_hp = "25,00 - 64,99";
+                        $nh  = "D";
+                        $kup = "Tidak Baik";
+                    } else {
+                        $ni = $nilai;
+                        $no_hp = "0,00 - 64,98";
+                        $nh = "Tidak Ada";
+                        $kup = "Sangat Buruk";
+                    }
                     ?>
                     <div class="modal-body">
                         <center>
@@ -134,41 +159,51 @@
                                 BULAN/TRIWULAN/ SEMESTER/.....  TAHUN <?php echo date('Y'); ?>
                             </b></h3>
                             <div style="width:47%;border:2px solid black;padding:5px;display: inline-grid;border-radius: 0px 0px 0px 0px ;height: 327px;">
-                                <h5><b>NILAI IKM</b></h5>
+                                <h5>
+                                    <b>NILAI IKM</b>
+                                </h5>
                                 <?php $skm = ROUND(($a+$b+$c+$d+$e+$f+$g+$h+$i)*25,1)?>
                                 <font style="font-size: 180px;">{{$skm}}</font>
                             </div>
                             <?php 
                                 $P = DB::table('responden')
                                             ->where('GENDER','like','P')
+                                            ->where('taman_id', '=', $dt_thi[0]->taman_id)
                                             ->count();
 
                                 $L = DB::table('responden')
                                             ->where('GENDER','like','L')
+                                            ->where('taman_id', '=', $dt_thi[0]->taman_id)
                                             ->count();
 
                                 $SD = DB::table('responden')
                                             ->where('PENDIDIKAN','like','SD')
+                                            ->where('taman_id', '=', $dt_thi[0]->taman_id)
                                             ->count();
 
                                 $SMP = DB::table('responden')
                                             ->where('PENDIDIKAN','like','SMP')
+                                            ->where('taman_id', '=', $dt_thi[0]->taman_id)
                                             ->count();
 
                                 $SMA = DB::table('responden')
                                             ->where('PENDIDIKAN','like','SMA')
+                                            ->where('taman_id', '=', $dt_thi[0]->taman_id)
                                             ->count();
 
                                 $S1 = DB::table('responden')
                                             ->where('PENDIDIKAN','like','S1')
+                                            ->where('taman_id', '=', $dt_thi[0]->taman_id)
                                             ->count();
 
                                 $S2 = DB::table('responden')
                                             ->where('PENDIDIKAN','like','S2')
+                                            ->where('taman_id', '=', $dt_thi[0]->taman_id)
                                             ->count();
 
                                 $S3 = DB::table('responden')
                                             ->where('PENDIDIKAN','like','S3')
+                                            ->where('taman_id', '=', $dt_thi[0]->taman_id)
                                             ->count();
                             ?>
                             <div style="width:50%;border:2px solid black;padding:5px;display: inline-grid;border-radius: 0px 0px 0px 0px;height: 327px;">
@@ -234,5 +269,12 @@
             </div>
         </div>
 
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-12">
+                    <a href="{{url('/data_tahun_ini')}}" class="btn btn-success"> Daftar Taman </a>
+                </div>
+            </div>
+        </div>
 
 @endsection
